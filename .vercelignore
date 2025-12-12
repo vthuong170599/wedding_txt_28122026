@@ -1,0 +1,22 @@
+# Ignore server-related files (not needed for static deployment)
+server/
+dist/index.js
+
+# Ignore development files
+node_modules/
+.git/
+.vscode/
+*.log
+
+# Ignore source files (only need build output)
+client/
+shared/
+
+# Keep these for build
+!package.json
+!package-lock.json
+!pnpm-lock.yaml
+!vite.config.ts
+!tsconfig.json
+!tailwind.config.ts
+!postcss.config.js
