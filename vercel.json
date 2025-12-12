@@ -4,6 +4,10 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": null,
+  "env": {
+    "VITE_ANALYTICS_ENDPOINT": "",
+    "VITE_ANALYTICS_WEBSITE_ID": ""
+  },
   "rewrites": [
     {
       "source": "/(.*)",
