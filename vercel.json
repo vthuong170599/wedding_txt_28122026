@@ -1,8 +1,8 @@
 {
-  "buildCommand": "npm run build:client",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "dist/public",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
+  "devCommand": "pnpm run dev",
+  "installCommand": "pnpm install",
   "framework": null,
   "env": {
     "VITE_ANALYTICS_ENDPOINT": "",
