@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --font-script: "Great Vibes", cursive;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Lato", sans-serif;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 1s ease-out forwards;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+:root {
+  /* Eternal Bloom Palette */
+  /* Warm Cream Background */
+  --background: oklch(0.98 0.01 90); 
+  /* Deep Rose/Brown Text */
+  --foreground: oklch(0.35 0.08 40); 
+  
+  /* Soft Blush Pink Primary */
+  --primary: oklch(0.88 0.05 20); 
+  --primary-foreground: oklch(0.35 0.08 40);
+  
+  /* Muted Gold Accent */
+  --accent: oklch(0.75 0.12 85);
+  --accent-foreground: oklch(0.98 0.01 90);
+  
+  /* Card & Popover - slightly lighter than bg */
+  --card: oklch(0.99 0.005 90);
+  --card-foreground: oklch(0.35 0.08 40);
+  --popover: oklch(0.99 0.005 90);
+  --popover-foreground: oklch(0.35 0.08 40);
+  
+  /* Secondary - Soft Sage/Green hint for contrast */
+  --secondary: oklch(0.92 0.03 150);
+  --secondary-foreground: oklch(0.35 0.08 40);
+  
+  /* Muted */
+  --muted: oklch(0.94 0.02 90);
+  --muted-foreground: oklch(0.55 0.05 40);
+  
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  
+  --border: oklch(0.90 0.03 90);
+  --input: oklch(0.90 0.03 90);
+  --ring: oklch(0.75 0.12 85); /* Gold ring */
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Dark mode adaptation - Deep Midnight Blue base */
+  --background: oklch(0.15 0.04 260);
+  --foreground: oklch(0.95 0.02 90);
+  
+  --primary: oklch(0.70 0.10 20); /* Darker pink */
+  --primary-foreground: oklch(0.95 0.02 90);
+  
+  --accent: oklch(0.75 0.12 85); /* Gold remains */
+  --accent-foreground: oklch(0.15 0.04 260);
+  
+  --card: oklch(0.18 0.04 260);
+  --card-foreground: oklch(0.95 0.02 90);
+  --popover: oklch(0.18 0.04 260);
+  --popover-foreground: oklch(0.95 0.02 90);
+  
+  --secondary: oklch(0.25 0.05 260);
+  --secondary-foreground: oklch(0.95 0.02 90);
+  
+  --muted: oklch(0.25 0.04 260);
+  --muted-foreground: oklch(0.70 0.04 260);
+  
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  --border: oklch(0.30 0.04 260);
+  --input: oklch(0.30 0.04 260);
+  --ring: oklch(0.75 0.12 85);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold text-accent;
+  }
+  .font-script {
+    font-family: var(--font-script);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
