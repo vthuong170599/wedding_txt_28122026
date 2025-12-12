@@ -1,7 +1,6 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
@@ -22,6 +21,18 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    chunkSizeWarningLimit: 1000, // Tăng giới hạn cảnh báo lên 1000KB
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Tách các vendor libraries lớn thành chunks riêng
+          'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
+          'framer-motion': ['framer-motion'],
+          'lucide-icons': ['lucide-react'],
+          'confetti': ['canvas-confetti'],
+        },
+      },
+    },
   },
   server: {
     port: 3000,
