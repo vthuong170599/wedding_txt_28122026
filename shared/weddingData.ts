@@ -52,7 +52,7 @@ export const WEDDING_DATA = {
     },
     {
       text: "Hạnh phúc là được cùng em đi đến cuối con đường.",
-      author: "Unknown"
+      author: "Vũ Văn Thưởng"
     },
     {
       text: "Trăm năm tình viên mãn, bạc đầu nghĩa phu thê.",
