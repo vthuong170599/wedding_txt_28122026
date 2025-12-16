@@ -5,10 +5,10 @@ import { useState } from "react";
 
 // Dữ liệu ảnh cô dâu chú rể - bạn có thể thay đổi đường dẫn ảnh ở đây
 const WEDDING_PHOTOS = [
-  "/image/9 ảnh khung /2S8A8195.JPG",
-  "/image/9 ảnh khung /2S8A8292.JPG",
-  "/image/9 ảnh khung /2S8A9116 (1).JPG",
-  "/image/9 ảnh khung /PHIT1048.JPG",
+  "/image/9 ảnh khung /2S8A8195.webp",
+  "/image/9 ảnh khung /2S8A8292.webp",
+  "/image/9 ảnh khung /2S8A9116 (1).webp",
+  "/image/9 ảnh khung /PHIT1048.webp",
 ];
 
 // Dữ liệu lịch tháng 12/2025

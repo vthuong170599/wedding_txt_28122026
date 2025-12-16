@@ -4,15 +4,15 @@ import { RotateCcw, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Danh sách ảnh từ folder "9 ảnh khung"
 const PHOTOS = [
-  "/image/9 ảnh khung /2S8A8195.JPG",
-  "/image/9 ảnh khung /2S8A8292.JPG",
-  "/image/9 ảnh khung /2S8A8545.JPG",
-  "/image/9 ảnh khung /2S8A9116 (1).JPG",
-  "/image/9 ảnh khung /2S8A9194.JPG",
-  "/image/9 ảnh khung /PHIT1038.JPG",
-  "/image/9 ảnh khung /PHIT1048.JPG",
-  "/image/9 ảnh khung /PHIT1064.JPG",
-  "/image/9 ảnh khung /PHIT1489.JPG",
+  "/image/9 ảnh khung /2S8A8195.webp",
+  "/image/9 ảnh khung /2S8A8292.webp",
+  "/image/9 ảnh khung /2S8A8545.webp",
+  "/image/9 ảnh khung /2S8A9116 (1).webp",
+  "/image/9 ảnh khung /2S8A9194.webp",
+  "/image/9 ảnh khung /PHIT1038.webp",
+  "/image/9 ảnh khung /PHIT1048.webp",
+  "/image/9 ảnh khung /PHIT1064.webp",
+  "/image/9 ảnh khung /PHIT1489.webp",
 ];
 
 export default function PhotoBook() {
