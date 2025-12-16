@@ -56,6 +56,9 @@ export default function HeroSection() {
           src="/image/20 video/PHIT1470.JPG"
           alt="Wedding Banner"
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
       </motion.div>
 

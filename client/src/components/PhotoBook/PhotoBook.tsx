@@ -241,6 +241,8 @@ function SwipeCard({ photo, index, total, onSwipe, direction }: SwipeCardProps) 
           alt={`Wedding Photo ${index + 1}`}
           className="w-full h-full object-cover select-none pointer-events-none"
           draggable={false}
+          loading="eager"
+          decoding="async"
         />
 
         {/* Gradient Overlay */}

@@ -206,6 +206,8 @@ export default function AboutSection() {
                       src="/image/website đám cưới/2S8A8349.JPG"
                       alt="Chú Rể"
                       className="w-full h-full object-cover object-center"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="p-8 text-center">
@@ -253,6 +255,8 @@ export default function AboutSection() {
                       src="/image/20 video/PHIT1039.JPG"
                       alt="Cô Dâu"
                       className="w-full h-full object-cover object-center"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="p-8 text-center">
