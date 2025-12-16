@@ -1,28 +1,21 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-interface WishData {
+export interface Wish {
+  timestamp: string;
   name: string;
   message: string;
-  timestamp?: string;
 }
 
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse,
 ) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
+  // Only allow GET requests
+  if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { name, message }: WishData = req.body;
-
-    // Validate input
-    if (!name || !message) {
-      return res.status(400).json({ error: 'Name and message are required' });
-    }
-
     // Get Google Sheets credentials from environment variables
     const SHEET_ID = process.env.GOOGLE_SHEET_ID;
     const GOOGLE_API_KEY = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
@@ -42,34 +35,47 @@ export default async function handler(
         client_email: GOOGLE_API_KEY,
         private_key: GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
       },
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+      scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
     });
 
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Prepare data to append
-    const timestamp = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
-    const values = [[timestamp, name, message]];
-
-    // Append to sheet
-    await sheets.spreadsheets.values.append({
+    // Read data from sheet
+    const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SHEET_ID,
-      range: 'Sheet3!A:C', // Using Sheet3 as requested
-      valueInputOption: 'USER_ENTERED',
-      requestBody: {
-        values,
-      },
+      range: 'Sheet3!A:C', // Same range as submit-wish.ts
     });
+
+    const rows = response.data.values;
+
+    if (!rows || rows.length === 0) {
+      return res.status(200).json({
+        success: true,
+        wishes: [],
+      });
+    }
+
+    // Transform rows to wishes array (skip header if exists)
+    // Format: [timestamp, name, message]
+    const wishes: Wish[] = rows
+      .filter(row => row.length >= 3) // Only include rows with all 3 columns
+      .map(row => ({
+        timestamp: row[0] || '',
+        name: row[1] || '',
+        message: row[2] || '',
+      }))
+      .reverse(); // Show newest first
 
     return res.status(200).json({
       success: true,
-      message: 'Lời chúc đã được gửi thành công!'
+      wishes,
+      total: wishes.length,
     });
 
   } catch (error) {
-    console.error('Error submitting wish:', error);
+    console.error('Error fetching wishes:', error);
     return res.status(500).json({
-      error: 'Failed to submit wish',
+      error: 'Failed to fetch wishes',
       details: error instanceof Error ? error.message : 'Unknown error'
     });
   }

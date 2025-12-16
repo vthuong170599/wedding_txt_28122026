@@ -6,6 +6,7 @@ import EventDetails from "@/components/EventDetails";
 import InvitationCard from "@/components/InvitationCard";
 import QuotesSection from "@/components/QuotesSection";
 import RsvpSection from "@/components/RsvpSection";
+import WishesDisplay from "@/components/WishesDisplay";
 import PhotoBook from "@/components/PhotoBook";
 import { WEDDING_DATA } from "../../../shared/weddingData";
 
@@ -25,7 +26,8 @@ export default function Home() {
           <InvitationCard />
           <EventDetails />
           <RsvpSection />
-          
+          <WishesDisplay />
+
           {/* Footer */}
           <footer className="bg-primary/10 py-12 text-center borFder-t border-border">
             <h2 className="font-script text-4xl text-primary mb-4">

@@ -36,17 +36,29 @@ export default function RsvpSection() {
         body: JSON.stringify({ name, message }),
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        toast.success(data.message || "Cảm ơn bạn đã gửi lời chúc!");
-        (e.target as HTMLFormElement).reset();
-      } else {
-        toast.error(data.error || "Có lỗi xảy ra, vui lòng thử lại!");
+      // Check if response is ok first
+      if (!response.ok) {
+        // Try to parse error message
+        let errorMsg = "Có lỗi xảy ra, vui lòng thử lại!";
+        try {
+          const errorData = await response.json();
+          errorMsg = errorData.error || errorMsg;
+        } catch {
+          // If can't parse JSON, use status text
+          errorMsg = `Lỗi: ${response.status} - ${response.statusText}`;
+        }
+        toast.error(errorMsg);
+        return;
       }
+
+      // Parse success response
+      const data = await response.json();
+      toast.success(data.message || "Cảm ơn bạn đã gửi lời chúc!");
+      (e.target as HTMLFormElement).reset();
+
     } catch (error) {
       console.error('Error submitting wish:', error);
-      toast.error("Không thể gửi lời chúc. Vui lòng thử lại sau!");
+      toast.error("Không thể kết nối đến server. Vui lòng thử lại sau!");
     } finally {
       setIsSubmitting(false);
     }
