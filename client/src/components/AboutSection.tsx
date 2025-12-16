@@ -203,7 +203,7 @@ export default function AboutSection() {
                   <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                     <img
-                      src="/image/website đám cưới /PHIT1289.JPG"
+                      src="/image/website đám cưới/2S8A8349.JPG"
                       alt="Chú Rể"
                       className="w-full h-full object-cover object-center"
                     />
