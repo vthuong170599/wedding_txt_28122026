@@ -5,9 +5,10 @@ import { useState } from "react";
 
 // Dữ liệu ảnh cô dâu chú rể - bạn có thể thay đổi đường dẫn ảnh ở đây
 const WEDDING_PHOTOS = [
-  "/image/20 video/PHIT1470.JPG",
   "/image/ảnh phóng to /2S8A8418.JPG",
-  "/image/20 video/PHIT1470.JPG",
+  "/image/20 video/2S8A8344.JPG",
+  "/image/20 video/2S8A8418.JPG",
+  "/image/20 video/PHIT1485.JPG",
   // Thêm các ảnh khác ở đây
 ];
 

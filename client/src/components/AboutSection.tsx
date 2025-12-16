@@ -154,21 +154,21 @@ export default function AboutSection() {
           <TimelineItem 
             year="2022" 
             title="Lời tỏ tình" 
-            description="Dưới ánh nến lung linh và bầu trời đầy sao, anh đã ngỏ lời và em đã gật đầu đồng ý. Khoảnh khắc ấy sẽ mãi khắc sâu trong trái tim chúng mình." 
+            description="Dưới bầu trời đầy sao, anh đã ngỏ lời và em đã gật đầu đồng ý. Khoảnh khắc ấy sẽ mãi khắc sâu trong trái tim chúng mình." 
             align="right"
             icon="confession"
           />
           <TimelineItem 
             year="2024" 
             title="Cầu hôn" 
-            description="Khoảnh khắc thiêng liêng khi anh quỳ xuống và trao chiếc nhẫn đính ước. Em đã rơi nước mắt hạnh phúc và nói 'Yes' với tương lai bên anh." 
+            description="Khoảnh khắc thiêng liêng khi anh quỳ xuống và trao chiếc nhẫn đính ước. Em đã rơi nước mắt hạnh phúc và nói 'Yes' với tương lai bên anh."
             align="left"
             icon="proposal"
           />
           <TimelineItem 
-            year="2025" 
-            title="Ngày chung đôi" 
-            description="Chúng mình chính thức về chung một nhà, bắt đầu hành trình hạnh phúc mới. Cảm ơn bạn đã đến tham dự ngày trọng đại của chúng mình!" 
+            year="2025"
+            title="Ngày chung đôi"
+            description="Chúng mình chính thức về chung một nhà, bắt đầu hành trình hạnh phúc mới. Cảm ơn bạn đã đến tham dự ngày trọng đại của chúng mình!"
             align="right"
             icon="wedding"
           />
@@ -200,9 +200,13 @@ export default function AboutSection() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-accent/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-accent/20 hover:border-accent/40 transition-all duration-300">
-                  <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative overflow-hidden">
+                  <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
-                    <span className="text-gray-400 text-lg relative z-10">Ảnh Chú Rể</span>
+                    <img
+                      src="/image/website đám cưới /PHIT1289.JPG"
+                      alt="Chú Rể"
+                      className="w-full h-full object-cover object-center"
+                    />
                   </div>
                   <div className="p-8 text-center">
                     <div className="mb-4">
@@ -243,9 +247,13 @@ export default function AboutSection() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-primary/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
                 <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-accent/20 hover:border-accent/40 transition-all duration-300">
-                  <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative overflow-hidden">
+                  <div className="aspect-[3/4] bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10" />
-                    <span className="text-gray-400 text-lg relative z-10">Ảnh Cô Dâu</span>
+                    <img
+                      src="/image/20 video/PHIT1039.JPG"
+                      alt="Cô Dâu"
+                      className="w-full h-full object-cover object-center"
+                    />
                   </div>
                   <div className="p-8 text-center">
                     <div className="mb-4">

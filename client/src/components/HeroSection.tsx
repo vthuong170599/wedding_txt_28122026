@@ -76,7 +76,7 @@ export default function HeroSection() {
           transition={{ delay: 1, duration: 1.2 }}
           className="font-script text-5xl md:text-7xl mb-6 text-accent drop-shadow-lg"
         >
-          {WEDDING_DATA.bride.name} <span className="text-3xl md:text-5xl">&</span> {WEDDING_DATA.groom.name}
+          {WEDDING_DATA.groom.name} <span className="text-3xl md:text-5xl">&</span> {WEDDING_DATA.bride.name}
         </motion.h1>
 
         <motion.div

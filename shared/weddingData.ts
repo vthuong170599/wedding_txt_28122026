@@ -41,7 +41,7 @@ export const WEDDING_DATA = {
   ],
   bank: {
     accountName: "Trương Thị Xuân Tươi",
-    accountNumber: "0x023",
+    accountNumber: "19039064982014",
     bankName: "Techcombank",
     qrCode: "" // Placeholder for QR code image URL
   },

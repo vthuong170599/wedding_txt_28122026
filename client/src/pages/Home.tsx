@@ -6,6 +6,7 @@ import EventDetails from "@/components/EventDetails";
 import InvitationCard from "@/components/InvitationCard";
 import QuotesSection from "@/components/QuotesSection";
 import RsvpSection from "@/components/RsvpSection";
+import PhotoBook from "@/components/PhotoBook";
 import { WEDDING_DATA } from "../../../shared/weddingData";
 
 export default function Home() {
@@ -20,14 +21,15 @@ export default function Home() {
           <HeroSection />
           <AboutSection />
           <QuotesSection />
+          <PhotoBook />
           <InvitationCard />
           <EventDetails />
           <RsvpSection />
           
           {/* Footer */}
-          <footer className="bg-primary/10 py-12 text-center border-t border-border">
+          <footer className="bg-primary/10 py-12 text-center borFder-t border-border">
             <h2 className="font-script text-4xl text-primary mb-4">
-              {WEDDING_DATA.bride.name} & {WEDDING_DATA.groom.name}
+              {WEDDING_DATA.groom.name} &  {WEDDING_DATA.bride.name}
             </h2>
             <p className="font-serif text-muted-foreground mb-4">Thank you for being part of our big day!</p>
             <p className="text-sm text-muted-foreground/60">© 2025 Wedding Invitation</p>

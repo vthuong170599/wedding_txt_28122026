@@ -19,15 +19,37 @@ export default function RsvpSection() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+
+    const formData = new FormData(e.target as HTMLFormElement);
+    const name = formData.get('name') as string;
+    const message = formData.get('message') as string;
+
+    try {
+      const response = await fetch('/api/submit-wish', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, message }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(data.message || "Cảm ơn bạn đã gửi lời chúc!");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        toast.error(data.error || "Có lỗi xảy ra, vui lòng thử lại!");
+      }
+    } catch (error) {
+      console.error('Error submitting wish:', error);
+      toast.error("Không thể gửi lời chúc. Vui lòng thử lại sau!");
+    } finally {
       setIsSubmitting(false);
-      toast.success("Cảm ơn bạn đã gửi lời chúc!");
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+    }
   };
 
   return (
@@ -44,12 +66,12 @@ export default function RsvpSection() {
             <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-lg border border-border">
               <div className="space-y-2">
                 <Label htmlFor="name">Họ và Tên</Label>
-                <Input id="name" required placeholder="Nhập tên của bạn" className="bg-background" />
+                <Input id="name" name="name" required placeholder="Nhập tên của bạn" className="bg-background" />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="message">Lời Chúc</Label>
-                <Textarea id="message" required placeholder="Gửi những lời chúc tốt đẹp nhất..." className="bg-background min-h-[120px]" />
+                <Textarea id="message" name="message" required placeholder="Gửi những lời chúc tốt đẹp nhất..." className="bg-background min-h-[120px]" />
               </div>
 
               <Button type="submit" className="w-full font-serif text-lg" disabled={isSubmitting}>
@@ -66,16 +88,11 @@ export default function RsvpSection() {
             </p>
 
             <div className="bg-white p-8 rounded-lg shadow-lg border border-border text-center">
-              <div className="w-48 h-48 bg-gray-200 mx-auto mb-6 rounded-lg flex items-center justify-center">
-                 {/* Placeholder for QR Code */}
-                 <span className="text-gray-400">QR Code</span>
-              </div>
-              
-              <div className="space-y-2 mb-6">
-                <p className="text-muted-foreground uppercase tracking-wide text-sm">Ngân hàng</p>
-                <p className="font-bold text-xl text-primary">{WEDDING_DATA.bank.bankName}</p>
-              </div>
-
+                 <img
+                   src="/img/qr_code.jpg"
+                   alt="QR Code Chuyển Khoản"
+                   className="w-full h-full object-contain"
+                 />
               <div className="space-y-2 mb-6">
                 <p className="text-muted-foreground uppercase tracking-wide text-sm">Chủ tài khoản</p>
                 <p className="font-bold text-xl">{WEDDING_DATA.bank.accountName}</p>
