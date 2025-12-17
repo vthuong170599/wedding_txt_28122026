@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -6,12 +6,13 @@ import EventDetails from "@/components/EventDetails";
 import InvitationCard from "@/components/InvitationCard";
 import QuotesSection from "@/components/QuotesSection";
 import RsvpSection from "@/components/RsvpSection";
-import WishesDisplay from "@/components/WishesDisplay";
+import WishToast, { type WishToastRef } from "@/components/WishToast";
 import PhotoBook from "@/components/PhotoBook";
 import { WEDDING_DATA } from "../../../shared/weddingData";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const wishToastRef = useRef<WishToastRef>(null);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-primary/20">
@@ -26,7 +27,9 @@ export default function Home() {
           <InvitationCard />
           <EventDetails />
           <RsvpSection />
-          <WishesDisplay />
+
+          {/* Wish Toast - floating notification */}
+          <WishToast ref={wishToastRef} />
 
           {/* Footer */}
           <footer className="bg-primary/10 py-12 text-center borFder-t border-border">

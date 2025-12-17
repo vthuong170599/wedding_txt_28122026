@@ -43,7 +43,7 @@ export default async function handler(
     // Read data from sheet
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SHEET_ID,
-      range: 'Sheet3!A:C', // Same range as submit-wish.ts
+      range: 'Sheet1!A:C', // Same range as submit-wish.ts
     });
 
     const rows = response.data.values;

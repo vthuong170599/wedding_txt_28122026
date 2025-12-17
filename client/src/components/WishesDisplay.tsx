@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import { motion } from "framer-motion";
 import { Heart, Loader2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,14 +9,14 @@ interface Wish {
   message: string;
 }
 
-export default function WishesDisplay() {
+export interface WishesDisplayRef {
+  refresh: () => Promise<void>;
+}
+
+const WishesDisplay = forwardRef<WishesDisplayRef>((props, ref) => {
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchWishes();
-  }, []);
 
   const fetchWishes = async () => {
     try {
@@ -39,9 +39,18 @@ export default function WishesDisplay() {
     }
   };
 
+  // Expose refresh method to parent via ref
+  useImperativeHandle(ref, () => ({
+    refresh: fetchWishes
+  }));
+
+  useEffect(() => {
+    fetchWishes();
+  }, []);
+
   if (isLoading) {
     return (
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary/5" id="wishes-section">
         <div className="container mx-auto px-4">
           <h2 className="font-script text-5xl text-primary text-center mb-12">
             Lời Chúc Từ Mọi Người
@@ -57,7 +66,7 @@ export default function WishesDisplay() {
 
   if (error) {
     return (
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary/5" id="wishes-section">
         <div className="container mx-auto px-4">
           <h2 className="font-script text-5xl text-primary text-center mb-12">
             Lời Chúc Từ Mọi Người
@@ -72,7 +81,7 @@ export default function WishesDisplay() {
 
   if (wishes.length === 0) {
     return (
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-primary/5" id="wishes-section">
         <div className="container mx-auto px-4">
           <h2 className="font-script text-5xl text-primary text-center mb-12">
             Lời Chúc Từ Mọi Người
@@ -89,7 +98,7 @@ export default function WishesDisplay() {
   }
 
   return (
-    <section className="py-20 bg-primary/5">
+    <section className="py-20 bg-primary/5" id="wishes-section">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -138,4 +147,8 @@ export default function WishesDisplay() {
       </div>
     </section>
   );
-}
+});
+
+WishesDisplay.displayName = 'WishesDisplay';
+
+export default WishesDisplay;

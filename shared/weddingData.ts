@@ -5,8 +5,8 @@ export const WEDDING_DATA = {
     father: "Vũ Văn Năm",
     mother: "Vũ Thị Hoa",
     address: "Đông Hành Quần, Nam Minh, Ninh Bình",
-    mapUrl: "https://maps.google.com/?q=Đông+Hành+Quần,+Bình+Minh,+Nam+Trực,+Ninh+Bình",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.0!2d106.3!3d20.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI0JzAwLjAiTiAxMDbCsDE4JzAwLjAiRQ!5e0!3m2!1svi!2s!4v1"
+    mapUrl: "https://maps.app.goo.gl/j3eKNKFNoaQxtsom9",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3740.5!2d106.190396!3d20.310326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1734549600000!5m2!1svi!2s"
   },
   bride: {
     name: "Xuân Tươi",

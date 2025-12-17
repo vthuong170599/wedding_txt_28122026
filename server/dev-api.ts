@@ -63,7 +63,7 @@ app.post('/api/submit-wish', async (req, res) => {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,
-      range: 'Sheet3!A:C',
+      range: 'Sheet1!A:C',
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values,
@@ -110,7 +110,7 @@ app.get('/api/get-wishes', async (req, res) => {
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SHEET_ID,
-      range: 'Sheet3!A:C',
+      range: 'Sheet1!A:C',
     });
 
     const rows = response.data.values;

@@ -54,7 +54,7 @@ export default async function handler(
     // Append to sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,
-      range: 'Sheet3!A:C', // Using Sheet3 as requested
+      range: 'Sheet1!A:C', // Using Sheet1 as requested
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values,
