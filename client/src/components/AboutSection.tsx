@@ -159,7 +159,7 @@ export default function AboutSection() {
             icon="confession"
           />
           <TimelineItem 
-            year="2024" 
+            year="2025" 
             title="Cầu hôn" 
             description="Khoảnh khắc thiêng liêng khi anh quỳ xuống và trao chiếc nhẫn đính ước. Em đã rơi nước mắt hạnh phúc và nói 'Yes' với tương lai bên anh."
             align="left"
