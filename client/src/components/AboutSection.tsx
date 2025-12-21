@@ -152,7 +152,7 @@ export default function AboutSection() {
             icon="first"
           />
           <TimelineItem 
-            year="2022" 
+            year="2024" 
             title="Lời tỏ tình" 
             description="Dưới bầu trời đầy sao, anh đã ngỏ lời và em đã gật đầu đồng ý. Khoảnh khắc ấy sẽ mãi khắc sâu trong trái tim chúng mình." 
             align="right"
